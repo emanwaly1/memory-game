@@ -1,0 +1,105 @@
+
+  @import url('https://fonts.googleapis.com/css2?family=Barriecito&family=Bruno+Ace+SC&family=Bubblegum+Sans&family=DynaPuff:wght@400;500&family=Frijole&family=Gloria+Hallelujah&family=Gluten:wght@300;400&family=Indie+Flower&family=Kalam&family=Marck+Script&family=Marhey&family=Passero+One&family=Permanent+Marker&family=Poppins:ital,wght@0,100;0,200;0,700;1,100;1,200;1,900&family=Preahvihear&family=Readex+Pro&family=Roboto&family=Shadows+Into+Light&family=Shadows+Into+Light+Two&family=Special+Elite&family=Work+Sans:wght@200;500&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "poppins",sans-serif;
+}
+    
+body{
+    display: flex;
+    align-items: center;
+   justify-content: center;
+    min-height: 100vh;
+    background-color: rgba(202, 142, 131, 0.781);
+    
+}
+.warpper{
+    height: 400px;
+    width: 400px;
+    padding: 25px; ;
+    background: #fff;
+    border-radius: 10px
+}
+
+
+.cards,.card, .view {
+   width: 100px;
+   height: 100px;
+   display: flex;
+   align-items: center;
+   position: absolute;
+   justify-content: center;
+   background-color: bisque;
+   border-radius: 7px;
+   box-shadow: 0 5px 10px rgba(0,0,0,0.5);
+
+
+}
+.cards{
+  width: 100% ;
+  height:100%; 
+ flex-wrap: wrap;
+  justify-content: space-between;
+  position: relative;
+
+}
+
+
+.cards .card{
+    cursor: pointer;
+    position: relative;
+    perspective: 880px;
+    transform-style:preserve-3d ;
+    height: calc(100% / 4 - 10px);
+    width: calc(100% / 4 - 10px);
+   
+}
+.card.shake {
+    animation: shake 0.35s ease-in-out;
+    animation-fill-mode: both; /* Add this line */
+  }
+  
+  @keyframes shake {
+    0%, 100% {
+      transform: translateX(0);
+    }
+    10%, 30%, 50%, 70%, 90% {
+      transform: translateX(-10px);
+    }
+    20%, 40%, 60%, 80% {
+      transform: translateX(10px);
+    }
+  }
+.cards .card .view{
+    width: 100%;
+    height: 100%;
+    user-select: none;
+    pointer-events: none;
+    position: absolute;
+    border-radius: 7px;
+    transition: transform 0.25s linear;
+      backface-visibility: hidden;
+    background: #fff;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+   
+}
+
+.card .front_view span{
+    color: #d1b39f;
+    font-size: 40px;
+}
+
+.card .back_view{
+    transform: rotateY(-180deg);
+  }
+.card .back_view img{
+    max-width: 45px;
+}
+.card.flip .front_view {
+ transform: rotate(-180deg  );
+}
+.card.flip .back_view {
+   transform: rotate(0);
+}
